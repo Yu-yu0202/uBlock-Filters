@@ -1,0 +1,31 @@
+[uBlock Origin]
+! Title: Optimized YouTube Ad & Annoyance Blocklist
+! Description: A focused filter list for uBlock Origin to block YouTube ads, anti-adblock measures, and other annoyances without breaking site functionality.
+! Version: 20251103.1
+! Last modified: 2025-11-03
+! Homepage: https://github.com/Yu-yu0202/uBlock-Filters
+! License: MIT
+
+youtube.com##ytd-popup-container:has(ytd-mealbar-promo-renderer)
+youtube.com##ytd-popup-container:has(ytd-ad-choices-dialog-renderer)
+youtube.com##.ytp-ad-action-interstitial
+youtube.com##ytd-in-feed-ad-layout-renderer
+youtube.com##ytd-promoted-sparkles-web-renderer
+youtube.com##ytd-display-ad-renderer
+youtube.com##ytd-statement-banner-renderer
+youtube.com##+js(trusted-replace-string, "Statement for", "Paid promotion for")
+
+||youtube.com/api/stats/ads
+||youtube.com/pagead/
+||google.com/pagead/
+||googlevideo.com/videoplayback*&oad=
+||googlevideo.com/videoplayback*&ad_docid=
+||googlevideo.com/videoplayback*ctier=L$ctier!=A
+
+youtube.com##+js(json-prune, adPlacements playerAds clientVast)
+youtube.com##+js(json-prune, playerResponse.adPlacements playerResponse.playerAds)
+youtube.com##+js(set, playerResponse.adPlacements, undefined)
+youtube.com##+js(set, ytInitialPlayerResponse.adPlacements, undefined)
+
+||google.com/amp/*$document
+||cdn.ampproject.org^$document
