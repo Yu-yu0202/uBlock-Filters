@@ -1,6 +1,6 @@
 [uBlock Origin]
-! Title: Optimized YouTube Ad & Annoyance Blocklist
-! Description: A focused filter list for uBlock Origin to block YouTube ads, anti-adblock measures, and other annoyances without breaking site functionality.
+! Title: Optimized YouTube Ad Blocklist
+! Description: A focused filter list for uBlock Origin to block YouTube ads, anti-adblock measures without breaking site functionality.
 ! Version: 20251103.1
 ! Last modified: 2025-11-03
 ! Homepage: https://github.com/Yu-yu0202/uBlock-Filters
@@ -26,6 +26,3 @@ youtube.com##+js(json-prune, adPlacements playerAds clientVast)
 youtube.com##+js(json-prune, playerResponse.adPlacements playerResponse.playerAds)
 youtube.com##+js(set, playerResponse.adPlacements, undefined)
 youtube.com##+js(set, ytInitialPlayerResponse.adPlacements, undefined)
-
-||google.com/amp/*$document
-||cdn.ampproject.org^$document
